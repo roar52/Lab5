@@ -4,8 +4,6 @@ import sys
 import timeit
 from math import sqrt
 
-LIST_1 = [False]
-
 
 def find_primes(limit: int, proc: int) -> None:
     print('Идет работа...')
@@ -56,37 +54,37 @@ def write_in_file() -> None:
     with open('one.txt', 'r') as one:
         first_read = one.read()
         list_1 = first_read.split("\n")
-        os.remove('one.txt')
     with open('two.txt', 'r') as two:
         first_read = two.read()
         list_2 = first_read.split("\n")
-        os.remove('two.txt')
     with open('three.txt', 'r') as three:
         first_read = three.read()
         list_3 = first_read.split("\n")
-        os.remove('three.txt')
+    os.remove('one.txt')
+    os.remove('two.txt')
+    os.remove('three.txt')
     dirty_list = [0] * len(list_1)
     for i in range(0, len(list_1)):
         if list_1[i] == "False":
-            list_1_elem = False
+            list_1_elem = 0
         else:
-            list_1_elem = True
+            list_1_elem = 1
         if list_2[i] == "False":
-            list_2_elem = False
+            list_2_elem = 0
         else:
-            list_2_elem = True
+            list_2_elem = 1
         if list_3[i] == "False":
-            list_3_elem = False
+            list_3_elem = 0
         else:
-            list_3_elem = True
+            list_3_elem = 1
         dirty_list[i] = (list_1_elem + list_2_elem + list_3_elem) % 2
     nums = [0] * len(dirty_list)
-    for id, x in enumerate(dirty_list):
-        if x == 1:
-            if id % 5 == 0:
+    for x in range(len(dirty_list)):
+        if dirty_list[x] == 1:
+            if x % 5 == 0:
                 pass
             else:
-                nums[id] = id
+                nums[x] = x
     for x in range(5, int(sqrt(len(dirty_list)))):
         if nums[x]:
             for y in range(x ** 2, limit + 1, x ** 2):
