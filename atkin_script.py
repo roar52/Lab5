@@ -35,17 +35,17 @@ def find_primes(limit: int, proc: int) -> None:
                 primes_list[j] = False
     print('Идет работа...')
     if proc == 1:
-        with open('one.txt', "w", encoding='utf-7') as file:
+        with open('one.txt', "w") as file:
             for x in primes_list:
                 string = str(x) + '\n'
                 file.write(string)
     elif proc == 2:
-        with open('two.txt', "w", encoding='utf-7') as file:
+        with open('two.txt', "w") as file:
             for x in primes_list:
                 string = str(x) + '\n'
                 file.write(string)
     else:
-        with open('three.txt', "w", encoding='utf-7') as file:
+        with open('three.txt', "w") as file:
             for x in primes_list:
                 string = str(x) + '\n'
                 file.write(string)
