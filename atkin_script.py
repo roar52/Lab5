@@ -90,7 +90,7 @@ def write_in_file() -> None:
     nums[3] = 3
     nums[5] = 5
 
-    for i in range(int(len(nums))):
+    for i in range(2, int(len(nums))):
         if nums[i] != 0:
             for j in range(i * i, limit + 1, i * i):
                 nums[j] = 0
