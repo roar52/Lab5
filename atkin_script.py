@@ -98,7 +98,7 @@ def write_in_file() -> None:
 
 def start(limit: int) -> None:
     with multiprocessing.Pool(processes=3) as pool:
-        dead = pool.starmap(find_primes, iterable=[[limit, 1], [limit, 2], [limit, 3]])
+        pool.starmap(find_primes, iterable=[[limit, 1], [limit, 2], [limit, 3]])
         pool.close()
 
 
