@@ -50,7 +50,7 @@ def find_primes(limit: int, proc: int) -> None:
 
 
 def write_in_file() -> None:
-    print('Идет работа...')
+    print('Идет заключительная часть подсчета...')
     with open('one.txt', 'r') as one:
         first_read = one.read()
         list_1 = first_read.split("\n")
@@ -79,16 +79,20 @@ def write_in_file() -> None:
             list_3_elem = 1
         dirty_list[i] = (list_1_elem + list_2_elem + list_3_elem) % 2
     nums = [0] * len(dirty_list)
-    for x in range(len(dirty_list)):
-        if dirty_list[x] == 1:
-            if x % 5 == 0:
-                pass
-            else:
-                nums[x] = x
-    print('Идет работа...')
+    for i in range(len(dirty_list)):
+        if dirty_list[i] == 1:
+            nums[i] = i
+    nums[2] = 2
+    nums[3] = 3
+    nums[5] = 5
+    for i in range(len(nums)):
+        if nums[i] != 0:
+            for j in range(i + 1, len(nums)):
+                if nums[j] % nums[i] == 0:
+                    nums[j] = 0
+    print('Осталось совсем немного...')
     nums.pop()
     with open('result.txt', 'w') as file:
-        file.write('2\n3\n5\n')
         result = ''
         for i in range(len(nums)):
             if nums[i] != 0:
