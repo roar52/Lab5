@@ -31,6 +31,7 @@ def find_primes(limit: int, proc: int) -> None:
             number = i * i
             for j in range(number, int(sqrt_of_limit + 1), number):
                 primes_list[j] = False
+
     print('Идет работа...')
     if proc == 1:
         with open('one.txt', "w") as file:
@@ -60,9 +61,11 @@ def write_in_file() -> None:
     with open('three.txt', 'r') as three:
         first_read = three.read()
         list_3 = first_read.split("\n")
+
     os.remove('one.txt')
     os.remove('two.txt')
     os.remove('three.txt')
+
     dirty_list = [0] * len(list_1)
     for i in range(0, len(list_1)):
         if list_1[i] == "False":
@@ -86,6 +89,7 @@ def write_in_file() -> None:
     nums[2] = 2
     nums[3] = 3
     nums[5] = 5
+
     for i in range(int(len(nums))):
         if nums[i] != 0:
             for j in range(i * i, limit + 1, i * i):
