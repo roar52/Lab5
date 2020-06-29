@@ -118,13 +118,17 @@ if __name__ == '__main__':
         if int(sys.argv[1]) == 0:
             raise Exception
     except Exception:
+        print('-----------------------------------')
         print('Неправильный аргумент')
     except BaseException:
+        print('-----------------------------------')
         print('Скрипт завершен\nРезультат в папке с скриптом')
     else:
         limit = int(sys.argv[1])
         start_time = timeit.default_timer()
         start(limit)
         write_in_file()
+        print('-----------------------------------')
         print(f'Вычисление длилось: {timeit.default_timer() - start_time} секунд\n')
         print('Скрипт завершен\nРезультат в папке с скриптом')
+        print('-----------------------------------')
