@@ -85,14 +85,8 @@ def write_in_file() -> None:
                 pass
             else:
                 nums[x] = x
-    for x in range(5, int(sqrt(len(dirty_list)))):
-        if nums[x]:
-            for y in range(x ** 2, limit + 1, x ** 2):
-                nums[y] = False
     print('Идет работа...')
-    nums.remove(False)
     nums.pop()
-    nums.sort()
     with open('result.txt', 'w') as file:
         file.write('2\n3\n5\n')
         result = ''
